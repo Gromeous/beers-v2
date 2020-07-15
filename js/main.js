@@ -1,4 +1,4 @@
-var beersJson = 'https://raw.githubusercontent.com/pablz/logourl/master/beers.json',
+/*var beersJson = 'https://raw.githubusercontent.com/pablz/logourl/master/beers.json',
 assetsJson = 'https://raw.githubusercontent.com/pablz/logourl/master/assets.json'
 assetsArr = [],
 beersArr = [];
@@ -62,9 +62,47 @@ function setBg(){
        introBg.src=item.bgs[2].img;
     }
 }
+*/
+
+Vue.component('header-comp', {
+    template: `
+        <header>
+            <div class="content-wrap">
+                    {{title}}
+                    <ul>
+                        <li v-for="item in beers">
+                                {{item.nombre}}
+                        </li>
+                    </ul>
+            </div>
+        </header>
+    `,
+    data: () => {
+        return {
+            title: 'soy el header',
+            beers: [
+                {
+                    nombre:'ambar',
+                    precio:'120'
+                },
+
+                {
+                    nombre:'blacky',
+                    precio:'140'
+                },
+            ]
+        }
+    },
+});
 
 
 
+var app = new Vue({
+    el: '#app',
+    data: {
+      message: 'Hello Vue!'
+    }
+  })
 
 
 
